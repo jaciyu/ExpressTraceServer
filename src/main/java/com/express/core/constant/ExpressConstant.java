@@ -1,5 +1,9 @@
 package com.express.core.constant;
-
+/**
+ * 常量
+ * @author yuwenjin
+ *
+ */
 public final class ExpressConstant {
 	 /**
 	  * -1:无记录
