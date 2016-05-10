@@ -20,7 +20,7 @@ import com.express.core.util.DateUtil;
 import com.express.core.util.StringUtils;
 
 /**
- * 圆通爬虫
+ * 申通爬虫
  * @author yuwenjin
  * @date 2016年5月6日
  */

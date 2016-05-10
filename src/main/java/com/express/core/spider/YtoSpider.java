@@ -18,7 +18,11 @@ import com.express.core.response.ResponseMsg;
 import com.express.core.util.DateUtil;
 import com.express.core.util.StringUtils;
 import com.tgb.ccl.http.common.HttpHeader;
-
+/**
+ * 圆通爬虫
+ * @author yuwenjin
+ *
+ */
 public class YtoSpider {
 	private static final Logger log = Logger.getLogger(StoSpider.class);
 	private static String URL = "http://trace.yto.net.cn:8022/TraceSimple.aspx";
