@@ -26,12 +26,27 @@ import com.tgb.ccl.http.common.HttpHeader;
 public class YtoSpider {
 	private static final Logger log = Logger.getLogger(StoSpider.class);
 	private static String URL = "http://trace.yto.net.cn:8022/TraceSimple.aspx";
+	private static String TYPE ="yuantong"; 
 	//http://www.kuaidi100.com/query?type=yuantong&postid=881443775034378914&id=1&valicode=&temp=0.31010607212566177
 	//http://weixin.yto56.com.cn/Service/WaybillTrace/YTOWaybillTrace.aspx?WaybillNO=881667554913817264&Userid=oIIDzjgT1Ut6dO8uqGXOM3_pfA8U
 	//http://qq.yto56.com.cn/NewWaybillTrace/WaybillTrace.aspx?WaybillNO=881667554913817264
+	/**
+	 * 对外访问
+	 * @param number
+	 * @return
+	 */	
+	public ResponseMsg spider(String number){
+		int i = HttpUtils.randNumber(1,2);
+		if(i==1){
+			return this.spider_officalwebsite(number);
+		}else {
+			return Kuaidi100Spider.spider(number,TYPE);
+		}		
+	}
+	
 	
 	@SuppressWarnings("unchecked")
-	public ResponseMsg spider_officwebsite(String number){
+	protected ResponseMsg spider_officalwebsite(String number){
 		ResponseMsg msg = new ResponseMsg();
 		msg.setCode("yuantong");
 		msg.setNumber(number);
@@ -156,7 +171,7 @@ public class YtoSpider {
 	}*/
 	public static void main(String[] args){
 		YtoSpider ytoSpider = new YtoSpider();
-		ResponseMsg msg = ytoSpider.spider_officwebsite("881443775034378914");
+		ResponseMsg msg = ytoSpider.spider_officalwebsite("881443775034378914");
 		System.out.println(JSON.toJSONStringWithDateFormat(msg,"yyyy-MM-dd HH:mm:ss"));
 	}
 }

@@ -21,9 +21,22 @@ import com.tgb.ccl.http.common.HttpHeader;
 public class ZtoSpider {
 	private static final Logger log = Logger.getLogger(ZtoSpider.class);
 	private static final String URL = "http://www.zto.com/GuestService/Bill";
-	//http://www.kuaidi100.com/query?type=zhongtong&postid=768404530475&id=1&valicode=&temp=0.25235222186893225
+	private static String TYPE ="zhongtong"; 
+	/**
+	 * 对外访问
+	 * @param number
+	 * @return
+	 */
+	public ResponseMsg spider(String number){
+		int i = HttpUtils.randNumber(1,2);
+		if(i==1){
+			return this.spider_officalwebsite(number);
+		}else {
+			return Kuaidi100Spider.spider(number,TYPE);
+		}
+	}	
 	@SuppressWarnings("unchecked")
-	public ResponseMsg spider_officalwebsite(String number){
+	protected ResponseMsg spider_officalwebsite(String number){
 		ResponseMsg msg = new ResponseMsg();
 		msg.setCode("zhongtong");
 		msg.setNumber(number);
@@ -62,7 +75,6 @@ public class ZtoSpider {
 		}
 		return msg;
 	}
-	
 	public static void main(String[] args){
 		ZtoSpider spider = new ZtoSpider();
 		spider.spider_officalwebsite("768404530475");//531307476851
