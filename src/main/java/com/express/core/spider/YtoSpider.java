@@ -96,6 +96,7 @@ public class YtoSpider {
 							msg.setStatu(ExpressConstant.EXPRESS_NOEXIST);
 							msg.setMessage("抱歉，此单号无记录。<br>如确认运单号无误，可能是快件信息尚未发出，或有延迟，请稍后再试。");
 						}else {
+							msg.setMessage("查询成功");
 							Elements tr = table.select("tr");
 							String day = "";
 							List<ResponseData> list = new ArrayList<ResponseData>();

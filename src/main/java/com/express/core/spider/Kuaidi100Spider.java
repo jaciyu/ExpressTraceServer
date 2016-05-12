@@ -50,6 +50,7 @@ public class Kuaidi100Spider {
 					int state = obj.getIntValue("state");
 					msg.setStatu(state);
 					msg.setStatus(ExpressConstant.getStsteText(state));
+					msg.setMessage("查询成功");
 					JSONArray jsonArray = obj.getJSONArray("data");
 					List<ResponseData> list = new ArrayList<ResponseData>();
 					for (Object oj: jsonArray) {

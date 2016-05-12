@@ -73,6 +73,7 @@ public class StoSpider {
 						msg.setStatu(ExpressConstant.EXPRESS_NOEXIST);
 						msg.setMessage("抱歉，此单号无记录。<br>如确认运单号无误，可能是快件信息尚未发出，或有延迟，请稍后再试。");
 					}else{
+						msg.setMessage("查询成功");
 						Elements tds = tr.get(1).select("td");
 						if(tds.size()>=2){
 							Elements lis = tds.get(1).select("ul").first().select("li");
