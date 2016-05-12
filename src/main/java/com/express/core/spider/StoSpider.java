@@ -35,10 +35,10 @@ public class StoSpider {
 	 * @param number
 	 * @return
 	 */
-	public ResponseMsg spider(String number){
+	public static ResponseMsg spider(String number){
 		int i = HttpUtils.randNumber(1,2);
 		if(i==1){
-			return this.spider_officalwebsite(number);
+			return spider_officalwebsite(number);
 		}else {
 			return Kuaidi100Spider.spider(number,TYPE);
 		}
@@ -49,7 +49,7 @@ public class StoSpider {
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	protected ResponseMsg spider_officalwebsite(String number){
+	protected static ResponseMsg spider_officalwebsite(String number){
 		ResponseMsg msg = new ResponseMsg();
 		msg.setCode("shentong");
 		msg.setNumber(number);
@@ -130,11 +130,10 @@ public class StoSpider {
 		return msg;
 	}
 	public static void main(String[] args){
-		StoSpider ytoSpider = new StoSpider();
 		//229698906739
 		//229855869255
 		//229855869258
-		ResponseMsg msg = ytoSpider.spider("229698906739");
+		ResponseMsg msg = spider("229698906739");
 		System.out.println(JSON.toJSONStringWithDateFormat(msg,"yyyy-MM-dd HH:mm:ss"));
 	}
 }

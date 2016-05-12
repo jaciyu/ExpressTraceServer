@@ -35,10 +35,10 @@ public class YtoSpider {
 	 * @param number
 	 * @return
 	 */	
-	public ResponseMsg spider(String number){
+	public static ResponseMsg spider(String number){
 		int i = HttpUtils.randNumber(1,2);
 		if(i==1){
-			return this.spider_officalwebsite(number);
+			return spider_officalwebsite(number);
 		}else {
 			return Kuaidi100Spider.spider(number,TYPE);
 		}		
@@ -46,7 +46,7 @@ public class YtoSpider {
 	
 	
 	@SuppressWarnings("unchecked")
-	protected ResponseMsg spider_officalwebsite(String number){
+	protected static ResponseMsg spider_officalwebsite(String number){
 		ResponseMsg msg = new ResponseMsg();
 		msg.setCode("yuantong");
 		msg.setNumber(number);
@@ -171,8 +171,7 @@ public class YtoSpider {
 		
 	}*/
 	public static void main(String[] args){
-		YtoSpider ytoSpider = new YtoSpider();
-		ResponseMsg msg = ytoSpider.spider_officalwebsite("881443775034378914");
+		ResponseMsg msg = spider("881443775034378914");
 		System.out.println(JSON.toJSONStringWithDateFormat(msg,"yyyy-MM-dd HH:mm:ss"));
 	}
 }

@@ -27,16 +27,16 @@ public class ZtoSpider {
 	 * @param number
 	 * @return
 	 */
-	public ResponseMsg spider(String number){
+	public static ResponseMsg spider(String number){
 		int i = HttpUtils.randNumber(1,2);
 		if(i==1){
-			return this.spider_officalwebsite(number);
+			return spider_officalwebsite(number);
 		}else {
 			return Kuaidi100Spider.spider(number,TYPE);
 		}
 	}	
 	@SuppressWarnings("unchecked")
-	protected ResponseMsg spider_officalwebsite(String number){
+	protected static ResponseMsg spider_officalwebsite(String number){
 		ResponseMsg msg = new ResponseMsg();
 		msg.setCode("zhongtong");
 		msg.setNumber(number);
@@ -76,8 +76,7 @@ public class ZtoSpider {
 		return msg;
 	}
 	public static void main(String[] args){
-		ZtoSpider spider = new ZtoSpider();
-		spider.spider_officalwebsite("768404530475");//531307476851
+		spider("768404530475");//531307476851
 	}
 	
 }
