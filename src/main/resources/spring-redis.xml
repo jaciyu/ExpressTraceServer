@@ -8,7 +8,7 @@
             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">  
   
-    <context:component-scan base-package="com.x.redis.dao">
+    <context:component-scan base-package="com.exprss">
     </context:component-scan>
     <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">  
         <property name="maxIdle" value="${redis.maxIdle}" />  
@@ -23,6 +23,4 @@
     <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">  
         <property name="connectionFactory"   ref="connectionFactory" />  
     </bean>         
-      
-    <bean id="userDAO" class="com.x.redis.dao.impl.UserDAOImpl" />   
 </beans>
